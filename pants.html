@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pants - My Personal Closet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shirts.html">Shirts</a></li>
+                <li><a href="pants.html">Pants</a></li>
+                <li><a href="shoes.html">Shoes</a></li>
+                <li><a href="accessories.html">Accessories</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Pants</h1>
+        <div class="category-list">
+            <div class="clothing-item" data-status="favorite">
+                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Black Slim Pants">
+                <h3>Black Slim Pants</h3>
+                <p>Status: <span class="status">Favorite</span></p>
+            </div>
+            <div class="clothing-item" data-status="new">
+                <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Blue Jeans">
+                <h3>Blue Jeans</h3>
+                <p>Status: <span class="status">New</span></p>
+            </div>
+            <div class="clothing-item" data-status="worn">
+                <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Khaki Chinos">
+                <h3>Khaki Chinos</h3>
+                <p>Status: <span class="status">Worn</span></p>
+            </div>
+        </div>
+        <div class="filter-section">
+            <label for="status-filter">Filter by status:</label>
+            <select id="status-filter">
+                <option value="all">All</option>
+                <option value="favorite">Favorite</option>
+                <option value="new">New</option>
+                <option value="worn">Worn</option>
+            </select>
+        </div>
+    </main>
+    <script>
+    const filter = document.getElementById('status-filter');
+    const items = document.querySelectorAll('.clothing-item');
+    filter.addEventListener('change', function() {
+        const val = filter.value;
+        items.forEach(item => {
+            if (val === 'all' || item.dataset.status === val) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+    </script>
+</body>
+</html>
